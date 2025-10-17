@@ -1,0 +1,46 @@
+networks:
+  my-network:
+    driver: bridge
+
+services:
+  product-catalog-db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: example
+      POSTGRES_DATABASE: postgres
+    ports:
+      - 5432:5432
+    expose:
+      - 5432
+    networks:
+      - my-network
+    volumes:
+      - catalogo_produto_data:/var/lib/postgresql/data
+
+  catalogo-produto:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: catalogo-produtos
+    environment:
+      - DATASOURCE_URL=jdbc:postgresql://product-catalog-db:5432/postgres
+      - DATASOURCE_USERNAME=postgres
+      - DATASOURCE_PASSWORD=example
+      - HOST_MAIL=smtp.gmail.com
+      - HOST_PASSWORD=pwffnvfhhejcepr
+      - HOST_USERNAME=bgrbarbosa@gmail.com
+      - PORT=587
+      - SECRET_TOKEN=myapp
+      - WITH_ISSUER=myapp
+    networks:
+      - my-network
+    ports:
+      - 8080:8080
+    expose:
+      - 8080
+    restart: always
+
+volumes:
+  catalogo_produto_data:
