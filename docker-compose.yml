@@ -1,0 +1,62 @@
+networks:
+  my-network:
+    driver: bridge
+
+services:
+  product-catalog-db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: example
+      POSTGRES_DATABASE: postgres
+    ports:
+      - 5432:5432
+    expose:
+      - 5432
+    networks:
+      - my-network
+    volumes:
+      - catalogo_produto_data:/var/lib/postgresql/data
+
+  config-server:
+    build:
+      context: .
+      dockerfile: ./config-server/Dockerfile
+    container_name: config-server
+    env_file:
+      - ./.env
+    environment:
+      - CONFIG_SERVER_URI=${GIT_REPO_URI}
+      - CONFIG_SERVER_USERNAME=${CONFIG_SERVER_USERNAME}
+      - CONFIG_SERVER_PASSWORD=${CONFIG_SERVER_PASSWORD}
+      - PORT=${CATALOGO_PRODUTO_PORT}
+    networks:
+      - my-network
+    ports:
+      - 8888:8888
+    expose:
+      - 8888
+    restart: always
+
+  catalogo-produto:
+    build:
+      context: .
+      dockerfile: ./catalogo-produtos/Dockerfile
+    container_name: catalogo-produtos
+    env_file:
+      - ./.env
+    environment:
+      - PORT=${CATALOGO_PRODUTO_PORT}
+      - PROFILE_ACTIVE=${PROFILE_ACTIVE}
+      - CONFIG_SERVER_URI=${CONFIG_SERVER_URI}
+    networks:
+      - my-network
+    ports:
+      - 8080:8080
+    expose:
+      - 8080
+    restart: always
+
+volumes:
+  catalogo_produto_data:

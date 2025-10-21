@@ -1,0 +1,631 @@
+{
+	"info": {
+		"_postman_id": "d31f1a0a-05b7-41dd-8e21-cb00d693fca0",
+		"name": "Catalogo de Produtos - Pessoal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "16803873"
+	},
+	"item": [
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token_Access}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/category"
+					},
+					"response": []
+				},
+				{
+					"name": "Category by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token_Access}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/category/77b3fd5b-8162-48ba-bc12-491c969b2d3b"
+					},
+					"response": []
+				},
+				{
+					"name": "Categories paged",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token_Access}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/category/?page=0&size=12&sort=name,asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"category",
+								""
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "12"
+								},
+								{
+									"key": "sort",
+									"value": "name,asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token_Access}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"nameCategory\": \"Cabos\",\r\n        \"descCategory\": \"Categoria de cabos\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/category"
+					},
+					"response": []
+				},
+				{
+					"name": "Update category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token_Access}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"uuid\": \"77b3fd5b-8162-48ba-bc12-491c969b2d3b\",\r\n        \"nameCategory\": \"Cabos\",\r\n        \"descCategory\": \"Compreendem os cabos em geral\",\r\n        \"dtCreated\": \"2025-08-29\",\r\n        \"dtUpdated\": \"2025-08-29\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/category"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token_Access}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/category/6e92754b-f757-4334-bbc9-69bae35a019c"
+					},
+					"response": []
+				},
+				{
+					"name": "Category Report",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token_Access}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/category/report",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"category",
+								"report"
+							],
+							"query": [
+								{
+									"key": "fileType",
+									"value": "xlsx",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token_Access}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/product",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"key": "nameProduct",
+									"value": "Playstation 5 - alterado",
+									"disabled": true
+								},
+								{
+									"key": "descriptionProduct",
+									"value": "Switch",
+									"disabled": true
+								},
+								{
+									"key": "priceProduct",
+									"value": "700",
+									"disabled": true
+								},
+								{
+									"key": "category",
+									"value": "Instrumentos",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product Report",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token_Access}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/product/report?fileType=xlsx",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								"report"
+							],
+							"query": [
+								{
+									"key": "nameProduct",
+									"value": "5 geração",
+									"disabled": true
+								},
+								{
+									"key": "descriptionProduct",
+									"value": "Switch",
+									"disabled": true
+								},
+								{
+									"key": "priceProduct",
+									"value": "700",
+									"disabled": true
+								},
+								{
+									"key": "category",
+									"value": "Eletrônicos",
+									"disabled": true
+								},
+								{
+									"key": "fileType",
+									"value": "xlsx"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token_Access}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/product/306d4abd-eb65-4ff4-9a08-7216acfaf260"
+					},
+					"response": []
+				},
+				{
+					"name": "Products paged",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token_Access}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/products?page=0&size=12&sort=name,asc",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "12"
+								},
+								{
+									"key": "sort",
+									"value": "name,asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token_Access}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nameProduct\": \"Cabo de Rede par trançado\",\r\n  \"descriptionProduct\": \"Cabo de rede par trançado categoria 5e Furukawa\",\r\n  \"priceProduct\": 200.00,\r\n  \"urlProduct\": \"http://upload123\",\r\n  \"categoryProduct\": \r\n    {\r\n        \"uuidCategory\": \"ae5017eb-453c-4066-b72a-49954e9ef39e\"\r\n    }\r\n\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/product"
+					},
+					"response": []
+				},
+				{
+					"name": "Update product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token_Access}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "        {\r\n            \"uuid\": \"306d4abd-eb65-4ff4-9a08-7216acfaf260\",\r\n            \"nameProduct\": \"Cabo de Rede par trançado\",\r\n            \"descriptionProduct\": \"Cabo de rede par trançado categoria 5e Furukawa\",\r\n            \"priceProduct\": 200.0,\r\n            \"urlProduct\": \"http://upload123\",\r\n            \"dtCreated\": \"2025-09-01\",\r\n            \"dtUpdated\": null,\r\n            \"categoryProduct\": {\r\n                \"uuid\": \"77b3fd5b-8162-48ba-bc12-491c969b2d3b\"\r\n            }\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/product"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token_Access}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:8080/product/50b5adfb-e4be-4b3c-b7df-bb7b66787115"
+					},
+					"response": []
+				},
+				{
+					"name": "Enviar email",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token_Access}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/product/enviar-email?destination=bgrbarbosa@hotmail.com",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								"enviar-email"
+							],
+							"query": [
+								{
+									"key": "destination",
+									"value": "bgrbarbosa@hotmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token_Access}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/user"
+					},
+					"response": []
+				},
+				{
+					"name": "User by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token_Access}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/category/77b3fd5b-8162-48ba-bc12-491c969b2d3b"
+					},
+					"response": []
+				},
+				{
+					"name": "User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token_Access}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Marcio\",\r\n    \"lastName\": \"Marcio\",\r\n    \"email\": \"Marcio@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"roles\": [\r\n        {\r\n            \"id\": 1\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/user"
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token_Access}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "        {\r\n            \"id\": 1,\r\n            \"firstName\": \"Administrador\",\r\n            \"lastName\": \"Administrador\",\r\n            \"email\": \"admin@gmail.com\",\r\n            \"password\": \"$2a$12$9qvVcGPn8AkDLPYqM4FCs.Cd4AcQtp0z9q9KM0qApwI8L8XKuJ3O6\",\r\n            \"roles\": [\r\n                {\r\n                    \"id\": 1,\r\n                    \"authority\": \"ROLE_ADMIN\"\r\n                }, \r\n                {\r\n                    \"id\": 2,\r\n                    \"authority\": \"ROLE_USER\"\r\n                }\r\n            ]\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/user"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token_Access}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/user/2"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/user/login",
+						"description": "Generated from cURL: curl -X POST https://api.exemplo.com/oauth/token \\\r\n-H \"Content-Type: application/json\" \\\r\n-d '{\"client_id\":\"SEU_CLIENT_ID\", \"client_secret\":\"SEU_CLIENT_SECRET\", \"grant_type\":\"client_credentials\"}'\r\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Documentação",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{Token_Access}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/swagger-ui/index.html#/"
+			},
+			"response": []
+		},
+		{
+			"name": "Teste config server",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://config-server:8888/catalogo-produtos/dev"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:8080\n",
+			"type": "string"
+		}
+	]
+}

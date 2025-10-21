@@ -1,0 +1,3 @@
+INSERT INTO TB_ROLE (uuid, authority) values ('3ff909c6-b7c8-45b4-8018-734b4d63c5f2', 'ADMIN');
+INSERT INTO TB_USER (uuid, email, first_name, last_name, password) VALUES ('ba5499eb-2698-4316-90b4-ce7e445bfcb6', 'admin@gmail.com', 'Bruno', 'Barbosa', '$2a$12$THF88ngT0PA3604XXNLLa.Vx/d2uF1/UOKb3xzYkmP.gyUvS/usda');
+INSERT INTO TB_USER_ROLE(user_id, role_id) VALUES ('ba5499eb-2698-4316-90b4-ce7e445bfcb6', '3ff909c6-b7c8-45b4-8018-734b4d63c5f2');
